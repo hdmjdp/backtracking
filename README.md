@@ -52,6 +52,7 @@
     }  
     
 #完整代码：
+
     class Solution {
     public:
         vector<string> generateParenthesis(int n) {
