@@ -50,6 +50,32 @@
                 generate(leftNum,rightNum-1,s+')',result);  
             }  
     }  
+    
+#完整代码：
+    class Solution {
+    public:
+        vector<string> generateParenthesis(int n) {
+            vector<string> res;
+            //add(res,"",n,0);
+            generate(n,n,"",res);
+            return res;
+        }
+        void generate(int leftNum,int rightNum,string s,vector<string> &result)  
+            {  
+                if(leftNum==0&&rightNum==0)  
+                {  
+                    result.push_back(s);  
+                }  
+                if(leftNum>0)  
+                {  
+                    generate(leftNum-1,rightNum,s+'(',result);  
+                }  
+                if(rightNum>0&&leftNum<rightNum)  
+                {  
+                    generate(leftNum,rightNum-1,s+')',result);  
+                }  
+        }  
+    };
 
 你帖的那段代码逻辑中加了一条限制：“3. 是否还有右括号剩余。如有才加右括号”。这是合理的。不过对于这道题，如果满足限制1、2时，3一定自动满足，所以可以不判断3。
 
